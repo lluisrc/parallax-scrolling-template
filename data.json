@@ -1,0 +1,54 @@
+{
+    "navbar": [
+        {"name": "Inicio", "link": "#section1"},
+        {"name": "Nosotros", "link": "#section2"},
+        {"name": "Servicios", "link": "#section3"},
+        {"name": "Portfolio", "link": "#section4"},
+        {"name": "Contacto", "link": "#section5"}
+    ],
+    "section1": {
+        "title": "My Personal Web",
+        "description": "Here you can find my personal web...",
+        "background": "https://images.ctfassets.net/19dvw6heztyg/33TIRHLCSMjWnD9rGjnaBy/a56f1eaf8e9702980c013a01480c74cb/earn-more-as-developer?w=1440&q=75"
+    },
+    "section2": {
+        "title": "Skills",
+        "description": "I follow 5 years as profestional IT",
+        "grid": [
+            {"title": "JavaScript", "description": "Profesional JS design"},
+            {"title": "Apache", "description": "Several Deep Security Acction"},
+            {"title": "Docker", "description": "Containerized All I Can"},
+            {"title": "Kubernetes", "description": "Deep learning on boarding"},
+            {"title": "MongoDB", "description": "Data analisys deeply and conversion"}
+        ],
+        "detail": "Lorem Ipsum es simplementen \n el \n texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas, las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum."
+    },
+    "section3": {
+        "title": "Soft Skills",
+        "description": "Here all my projects",
+        "background": "https://miro.medium.com/v2/resize:fit:750/format:webp/0*5jV7BfF0dN7kaMsm",
+        "services": [
+            {"title": "Elegant", "description": "The most elegant employer you have"},
+            {"title": "Responsable", "description": "Shark maint"},
+            {"title": "Intelligent", "description": "The most intelligent employer"}
+        ]
+    },
+    "section4": {
+        "title": "Portfolio",
+        "description": "Nuestros proyectos",
+        "background": "https://media.wired.com/photos/64daad6b4a854832b16fd3bc/master/w_1920,c_limit/How-to-Choose-a-Laptop-August-2023-Gear.jpg",
+        "projects": [
+            {"title": "Moviemapp.tv", "description": "Simple and elegant", "image": "https://picsum.photos/536/354" },
+            {"title": "Facebook.com", "description": "A web for a Dubai customer", "image": "https://picsum.photos/536/354"},
+            {"title": "Minegraph.com", "description": "Unique idenify web form scamers", "image": "https://picsum.photos/536/354"}
+        ]
+    },
+    "section5": {
+        "title": "Contacto",
+        "description": "Ponte en contacto con nosotros",
+        "background": "https://img.freepik.com/foto-gratis/diseno-interiores-marcos-fotos-sofa_23-2149385435.jpg?t=st=1724227843~exp=1724231443~hmac=6f0946ebf06498448469fd5d0def1be633711160f6b0ac86c1d0e646c4415c4b&w=996"
+    },
+    "footer": {
+        "text": "Todos los derechos reservados."
+    }
+}

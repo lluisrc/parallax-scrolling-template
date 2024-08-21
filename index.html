@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Completa con Parallax Scrolling</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul id="navbar"></ul>
+    </nav>
+
+
+    <!-- Sección 1: Inicio -->
+    <div id="section1" class="parallax-section">
+        <div class="content">
+            <h1 id="section1-title"></h1>
+            <p id="section1-description"></p>
+        </div>
+    </div>
+
+    <!-- Sección 2: Nosotros -->
+    <div id="section2" class="content-section">
+        <h2 id="section2-title"></h2>
+        <p id="section2-description"></p>
+        <div id="section2-grid" class="grid-container"></div>
+        <p id="section2-detail"></p>
+    </div>
+
+    <!-- Sección 3: Servicios -->
+    <div id="section3" class="parallax-section">
+        <div class="content">
+            <h2 id="section3-title"></h2>
+            <p id="section3-description"></p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div id="section3-items" class="section3"></div>
+    </div>
+
+    <!-- Sección 4: Portfolio -->
+    <div id="section4" class="parallax-section">
+        <div class="content">
+            <h2 id="section4-title"></h2>
+            <p id="section4-description"></p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div id="section4-grid" class="section4-grid"></div>
+    </div>
+
+    <!-- Sección 5: Contacto -->
+    <div id="section5" class="parallax-section">
+        <div class="content">
+            <h2 id="section5-title"></h2>
+            <p id="section5-description"></p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <form class="contact-form">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+    
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p id="footer-text"></p>
+    </footer>
+
+    <!-- Script para cargar el JSON -->
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('active');
+        }
+        // Cargar el JSON y actualizar el DOM
+        fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            // Navbar
+            const navbar = document.getElementById('navbar');
+            data.navbar.forEach(item => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = item.link;
+                a.textContent = item.name;
+                li.appendChild(a);
+                navbar.appendChild(li);
+            });
+
+            // Sección Inicio
+            document.getElementById('section1-title').textContent = data.section1.title;
+            document.getElementById('section1-description').textContent = data.section1.description;
+            document.getElementById('section1').style.backgroundImage = `url(${data.section1.background})`;
+
+            // Sección Nosotros
+            document.getElementById('section2-title').textContent = data.section2.title;
+            document.getElementById('section2-description').textContent = data.section2.description;
+            document.getElementById('section2-detail').textContent = data.section2.detail;
+            const section2Grid = document.getElementById('section2-grid');
+            data.section2.grid.forEach(item => {
+                const div = document.createElement('div');
+                div.classList.add('grid-item');
+                div.innerHTML = `<h3>${item.title}</h3><p>${item.description}</p>`;
+                section2Grid.appendChild(div);
+            });
+
+            // Sección Servicios
+            document.getElementById('section3-title').textContent = data.section3.title;
+            document.getElementById('section3-description').textContent = data.section3.description;
+            document.getElementById('section3').style.backgroundImage = `url(${data.section3.background})`;
+
+            const section3Items = document.getElementById('section3-items');
+            data.section3.services.forEach(item => {
+                const div = document.createElement('div');
+                div.classList.add('service-item');
+                div.innerHTML = `<h3>${item.title}</h3><p>${item.description}</p>`;
+                section3Items.appendChild(div);
+            });
+
+            // Sección Portfolio
+            document.getElementById('section4-title').textContent = data.section4.title;
+            document.getElementById('section4-description').textContent = data.section4.description;
+            document.getElementById('section4').style.backgroundImage = `url(${data.section4.background})`;
+
+            const section4Grid = document.getElementById('section4-grid');
+            data.section4.projects.forEach(item => {
+                const div = document.createElement('div');
+                div.classList.add('section4-item');
+                div.innerHTML = `<img src="${item.image}" alt="${item.title}"><h3>${item.title}</h3><p>${item.description}</p>`;
+                section4Grid.appendChild(div);
+            });
+
+            // Sección Contacto
+            document.getElementById('section5-title').textContent = data.section5.title;
+            document.getElementById('section5-description').textContent = data.section5.description;
+            document.getElementById('section5').style.backgroundImage = `url(${data.section5.background})`;
+
+            // Footer
+            document.getElementById('footer-text').textContent = data.footer.text;
+        })
+        .catch(error => console.error('Error al cargar el JSON:', error));
+    </script>
+</body>
+</html>
